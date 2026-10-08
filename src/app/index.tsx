@@ -1,5 +1,6 @@
+import ExemploStyle_Text from "@/components/ExemploStyle_Text";
 import { useState } from "react";
-import { Alert, Image, Pressable, StyleSheet, Switch, Text, TextInput, View } from "react-native";
+import { Alert, StyleSheet, View } from "react-native";
 
 export default function Index() {
   const [campo, setCampo] = useState('');
@@ -12,7 +13,7 @@ export default function Index() {
   return (
     <View style={styles.container}>
       
-      <Pressable
+      {/* <Pressable
         onPress={()=>{
           Alert.alert(`Campo: ${campo}`)
           }}>
@@ -30,7 +31,10 @@ export default function Index() {
 
       <Image 
         source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}}
-        style={{width: 200, height: 200}}/>
+        style={{width: 200, height: 200}}/> */}
+
+      <ExemploStyle_Text/>
+      {/* <ExemploStyle_View/>   */}
     </View>
   );
 }
