@@ -1,13 +1,36 @@
-import Cachorro from "@/components/Cachorro";
-import Gato from "@/components/Gato";
-import { StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+import { Alert, Image, Pressable, StyleSheet, Switch, Text, TextInput, View } from "react-native";
 
 export default function Index() {
+  const [campo, setCampo] = useState('');
+  const [ativado, setAtivado] = useState(false);
+
+  const acionarPopUp= ()=>{
+    Alert.alert('Outro botão')
+  }
+  
   return (
     <View style={styles.container}>
-      <Text>Boa noite.</Text>
-      <Gato/>
-      <Cachorro nome="Totó"/>
+      
+      <Pressable
+        onPress={()=>{
+          Alert.alert(`Campo: ${campo}`)
+          }}>
+        <Text>Boa noite.</Text>
+      </Pressable>
+
+      <TextInput 
+        placeholder="Digite algo..."
+        value={campo}
+        onChangeText={(text)=> {setCampo(text)}}/>
+
+      <Switch 
+        value={ativado}
+        onValueChange={(value)=>{setAtivado(value)}}/>
+
+      <Image 
+        source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}}
+        style={{width: 200, height: 200}}/>
     </View>
   );
 }
