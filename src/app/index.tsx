@@ -1,6 +1,7 @@
 import Cachorro from "@/components/Cachorro";
+import { useRouter } from "expo-router";
 import { useState } from "react";
-import { FlatList, StyleSheet, View } from "react-native";
+import { Alert, FlatList, Pressable, StyleSheet, Text, View } from "react-native";
 
 type CachorroType = {
   nome: string,
@@ -8,26 +9,46 @@ type CachorroType = {
 }
 
 export default function Index() {
-  const [campo, setCampo] = useState('');
-  const [ativado, setAtivado] = useState(false);
-  
   const cao1 = {nome: 'Totó', raca: 'Não definido'} as CachorroType;
   const cao2 = {nome: 'Bob', raca: 'Rottweiler'} as CachorroType;
 
-  const lista : CachorroType[] = [cao1, cao2];
   
+  const [campo, setCampo] = useState('');
+  const [ativado, setAtivado] = useState(false);
+  const [listaCachorro, setListaCachorro] = useState<CachorroType[]>([cao1, cao2]);
+  
+  
+  // const lista : CachorroType[] = [cao1, cao2];
+  
+  const router = useRouter();
+
+  function selecionarCachorro(index: number){
+    Alert.alert('Cachorro selecionado: '+ index);
+    listaCachorro.splice(index, 1);
+    setListaCachorro(listaCachorro);
+    console.log(listaCachorro)
+  }
+
   return (
     <View style={styles.container}>
       
       <FlatList 
-        data={lista} 
+        data={listaCachorro} 
         renderItem={(item)=>{ 
           return (
-            <Cachorro nome={item.item.nome} raca={item.item.raca}/>
+            <Cachorro 
+              nome={item.item.nome} 
+              raca={item.item.raca}
+              index={item.index}
+              onSelecionar={selecionarCachorro}/>
             // <Text style={styles.fonte_grande}>{(item.index+1) + ' - ' + item.item}</Text>
           )
         }}/>
 
+      <Pressable
+        onPress={()=>{ router.navigate('/telaStyleText')  }}>
+        <Text>Ir para Exemplo Style Text</Text>
+      </Pressable>
 
 
       {/* <Pressable
