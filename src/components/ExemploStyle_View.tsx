@@ -30,11 +30,11 @@ const styles_local = StyleSheet.create({
         //valor de preenchimento da área disponível
         flex: 1,
         //definição do eixo principal
-        flexDirection: 'row-reverse',
+        flexDirection: 'row',
         //posicionamento dos objetos no eixo principal
-        justifyContent: 'space-between',
+        justifyContent: 'center',
         //posicionamento dos objetos no eixo secundário
-        alignItems: 'stretch',
+        alignItems: 'flex-start',
         //cor de fundo
         backgroundColor: 'red',
         //margem
@@ -71,7 +71,7 @@ const styles_local = StyleSheet.create({
     },
     flex_pequeno: {
         //valor de preenchimento da área disponível
-        flex: 1
+        flex: 100
     },
     flex_grande: {
         //valor de preenchimento da área disponível

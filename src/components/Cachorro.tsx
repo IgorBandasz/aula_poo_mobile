@@ -9,7 +9,11 @@ export default function Cachorro(props: CachorroProps) {
     return ( 
         <View>
             <Text>Cachorro: {props.nome}</Text>
-            <Text>Raça: {props.raca}</Text>
+            {
+                props.raca 
+                &&
+                <Text>Raça: {props.raca}</Text>
+            }
         </View>
     )
 }

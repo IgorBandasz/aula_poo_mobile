@@ -19,15 +19,15 @@ export default ExemploStyle_Text;
 const styles_local = StyleSheet.create({
     texto1: {
         //cor
-        color: 'blue'
+        color: 'yellow'
     },
     texto2: {
         //cor
-        color: '#00BFFF'
+        color: '#da1818'
     },
     texto3: {
         //espessura do texto
-        fontWeight: '900',
+        fontWeight: 'heavy',
         //tamanho da fonte
         fontSize: 50,
     },
@@ -39,11 +39,11 @@ const styles_local = StyleSheet.create({
         //cor
         color: 'black',
         //criando sombra para o texto
-        textShadowOffset: { width: -20, height: 5 },
+        textShadowOffset: { width: 20, height: 5 },
         //cor da sombra do texto
-        textShadowColor: 'red',
+        textShadowColor: 'green',
         //embaçar a sombra
-        textShadowRadius: 20,
+        textShadowRadius: 1,
         //tamanho da fonte do texto
         fontSize: 100,
     },
